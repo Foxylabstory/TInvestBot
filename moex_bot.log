@@ -5342,3 +5342,218 @@
 2026-07-08 09:25:03,693 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetOrderBook: Cannot connect to host invest-public-api.tbank.ru:443 ssl:True [SSLCertVerificationError: ('Цепочка сертификатов обработана, но обработка прервана на корневом сертификате, у которого отсутствует отношение доверия с поставщиком доверия.',)]
 2026-07-08 09:25:03,783 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetOrderBook: Cannot connect to host invest-public-api.tbank.ru:443 ssl:True [SSLCertVerificationError: ('Цепочка сертификатов обработана, но обработка прервана на корневом сертификате, у которого отсутствует отношение доверия с поставщиком доверия.',)]
 2026-07-08 09:25:04,051 [INFO] moex_bot.main: Остановлено пользователем.
+2026-07-08 13:49:34,711 [INFO] moex_bot.main: Запуск мониторинга (T-Invest API) по 15 тикерам: SBER, GAZP, LKOH, GMKN, ROSN, TATN, NVTK, MGNT, SNGS, VTBR, MOEX, CHMF, PLZL, ALRS, YNDX
+2026-07-08 13:49:34,750 [INFO] moex_bot.tinvest: Российские корневые сертификаты (НУЦ Минцифры) подключены
+2026-07-08 13:49:36,044 [INFO] moex_bot.main: Сигнал (паттерн): ALRS Двойная вершина [classic] @ 19.45
+2026-07-08 13:49:36,184 [INFO] moex_bot.main: Сигнал (паттерн): SBER Доджи [candlestick] @ 296.01
+2026-07-08 13:49:36,216 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Connection closed.
+2026-07-08 13:49:36,297 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Connection closed.
+2026-07-08 13:49:36,323 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Connection closed.
+2026-07-08 13:49:36,336 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Connection closed.
+2026-07-08 13:49:36,454 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Connection closed.
+2026-07-08 13:49:36,677 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Server disconnected
+2026-07-08 13:49:36,796 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Server disconnected
+2026-07-08 13:49:36,865 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Server disconnected
+2026-07-08 13:49:36,924 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Server disconnected
+2026-07-08 13:49:36,989 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Server disconnected
+2026-07-08 13:49:37,015 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Server disconnected
+2026-07-08 13:49:37,025 [ERROR] moex_bot.tinvest: Ошибка запроса T-Invest MarketDataService.GetCandles: Server disconnected
+2026-07-08 13:53:40,307 [INFO] moex_bot.main: Запуск мониторинга (T-Invest API) по 15 тикерам: SBER, GAZP, LKOH, GMKN, ROSN, TATN, NVTK, MGNT, SNGS, VTBR, MOEX, CHMF, PLZL, ALRS, YNDX
+2026-07-08 13:53:40,340 [INFO] moex_bot.tinvest: Российские корневые сертификаты (НУЦ Минцифры) подключены
+2026-07-08 13:53:41,000 [INFO] moex_bot.main: Сигнал (паттерн): SBER Двойная вершина [classic] @ 295.86
+2026-07-08 13:53:41,124 [INFO] moex_bot.main: Сигнал (паттерн): GAZP Двойная вершина [classic] @ 94.46
+2026-07-08 13:53:41,208 [INFO] moex_bot.main: Сигнал (паттерн): LKOH Медвежье поглощение [candlestick] @ 4469.00
+2026-07-08 13:53:41,320 [INFO] moex_bot.main: Сигнал (паттерн): GMKN Двойная вершина [classic] @ 110.12
+2026-07-08 13:53:41,546 [INFO] moex_bot.main: Сигнал (паттерн): ROSN Двойная вершина [classic] @ 322.35
+2026-07-08 13:53:41,618 [INFO] moex_bot.main: Сигнал (паттерн): TATN Медвежье поглощение [candlestick] @ 476.90
+2026-07-08 13:53:41,683 [INFO] moex_bot.main: Сигнал (паттерн): NVTK Двойная вершина [classic] @ 934.60
+2026-07-08 13:53:41,826 [INFO] moex_bot.main: Сигнал (паттерн): MOEX Медвежье поглощение [candlestick] @ 160.09
+2026-07-08 13:53:41,872 [INFO] moex_bot.main: Сигнал (паттерн): MGNT Доджи [candlestick] @ 1825.50
+2026-07-08 13:53:41,945 [INFO] moex_bot.main: Сигнал (паттерн): SNGS Двойная вершина [classic] @ 15.85
+2026-07-08 13:53:42,002 [INFO] moex_bot.main: Сигнал (паттерн): CHMF Двойная вершина [classic] @ 554.40
+2026-07-08 13:53:42,043 [INFO] moex_bot.main: Сигнал (паттерн): VTBR Двойная вершина [classic] @ 64.34
+2026-07-08 13:53:42,081 [INFO] moex_bot.main: Сигнал (паттерн): PLZL Двойная вершина [classic] @ 1362.60
+2026-07-08 13:53:42,108 [INFO] moex_bot.main: Сигнал (паттерн): ALRS Двойная вершина [classic] @ 19.40
+2026-07-08 13:54:02,042 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,043 [INFO] moex_bot.main: Сигнал (паттерн): SBER Двойное дно [classic] @ 295.86
+2026-07-08 13:54:02,207 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,278 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,279 [INFO] moex_bot.main: Сигнал (паттерн): LKOH Двойная вершина [classic] @ 4469.00
+2026-07-08 13:54:02,357 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,627 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,675 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,679 [INFO] moex_bot.main: Сигнал (паттерн): TATN Двойная вершина [classic] @ 476.90
+2026-07-08 13:54:02,739 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,923 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,924 [INFO] moex_bot.main: Сигнал (паттерн): MOEX Двойная вершина [classic] @ 160.09
+2026-07-08 13:54:02,930 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:02,931 [INFO] moex_bot.main: Сигнал (паттерн): MGNT Двойное дно [classic] @ 1825.50
+2026-07-08 13:54:03,009 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:03,018 [INFO] moex_bot.main: Сигнал (паттерн): SNGS Двойное дно [classic] @ 15.85
+2026-07-08 13:54:03,055 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:03,086 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:03,135 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:03,152 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:23,092 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:23,326 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:23,326 [INFO] moex_bot.main: Сигнал (паттерн): LKOH Сужающийся треугольник (возможна консолидация) [classic] @ 4469.00
+2026-07-08 13:54:23,733 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:23,733 [INFO] moex_bot.main: Сигнал (паттерн): TATN Двойное дно [classic] @ 476.90
+2026-07-08 13:54:23,969 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:23,970 [INFO] moex_bot.main: Сигнал (паттерн): MOEX Двойное дно [classic] @ 160.09
+2026-07-08 13:54:23,972 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:24,062 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:40,129 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,132 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,132 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,133 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,136 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,160 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,163 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,163 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,165 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,167 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,189 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,230 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,233 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,279 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:40,330 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,141 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,142 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,143 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,146 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,148 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,173 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,174 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,176 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,179 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,179 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,227 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,443 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,445 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,455 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:41,457 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,147 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,147 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,148 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,150 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,151 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,175 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,179 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,179 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,182 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,183 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,203 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,210 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,211 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,212 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:42,217 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,155 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,156 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,158 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,158 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,160 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,184 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,186 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,188 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,188 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,191 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,214 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,215 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,219 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,223 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:43,225 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,162 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,163 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,166 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,166 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,168 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,196 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,198 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,200 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,201 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,201 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,231 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,233 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,235 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,236 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,238 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:44,352 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:44,780 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:45,031 [ERROR] moex_bot.notifier: Не удалось отправить сообщение в Telegram: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-07-08 13:54:45,062 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,067 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,067 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,068 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,068 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,098 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,100 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,102 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,103 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,106 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,132 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,135 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,138 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,139 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,143 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetCandles вернул статус 429: 
+2026-07-08 13:54:45,167 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,168 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,170 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,171 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,186 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,196 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,204 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,205 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,207 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,221 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,232 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,238 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,238 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,252 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:45,253 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,176 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,180 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,182 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,182 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,183 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,208 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,213 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,216 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,217 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,219 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,240 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,244 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,249 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,252 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:46,253 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,184 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,187 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,187 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,189 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,190 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,217 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,220 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,222 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,223 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,225 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,253 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,253 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,254 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,256 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:47,257 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,189 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,190 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,191 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,194 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,199 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,222 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,224 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,225 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,228 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,233 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,253 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,256 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,257 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,264 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:48,266 [WARNING] moex_bot.tinvest: T-Invest MarketDataService.GetOrderBook вернул статус 429: 
+2026-07-08 13:54:49,109 [INFO] moex_bot.main: Остановлено пользователем.

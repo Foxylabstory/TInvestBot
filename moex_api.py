@@ -43,6 +43,7 @@ class TopOfBook:
     ask_volume: int | None       # объём по лучшей цене продажи, лоты
     bid_total_volume: int | None  # суммарный видимый объём на покупку
     ask_total_volume: int | None  # суммарный видимый объём на продажу
+    volume_today: int | None      # накопленный объём торгов за день (для расчёта объёма свечей)
     timestamp: float
 
 

@@ -1,6 +1,7 @@
 aiohttp>=3.9
 aiogram>=3.4
 python-dotenv>=1.0
+certifi>=2024.0.0
 
 # tinkoff-investments>=0.2.0b100
 # tinkoff-investments временно в карантине на PyPI (см. README) —
