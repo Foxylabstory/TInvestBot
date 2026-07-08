@@ -1,0 +1,8 @@
+aiohttp>=3.9
+aiogram>=3.4
+python-dotenv>=1.0
+
+# tinkoff-investments>=0.2.0b100
+# tinkoff-investments временно в карантине на PyPI (см. README) —
+# ставится напрямую из GitHub, поэтому не указываем версию через ==
+# git+https://github.com/RussianInvestments/invest-python.git#egg=tinkoff-investments
