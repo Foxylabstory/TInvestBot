@@ -101,6 +101,29 @@ def _iso(dt: datetime) -> str:
     return dt.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
 
 
+class _RateLimiter:
+    """
+    Простой rate limiter с равномерным интервалом между запросами.
+    T-Invest API документированно ограничивает unary-методы
+    (GetOrderBook, GetCandles) 100 запросами в минуту — превышение
+    даёт HTTP 429. Ограничиваем СУММАРНУЮ частоту запросов клиента
+    (а не только параллелизм), чтобы гарантированно не упираться в лимит.
+    """
+
+    def __init__(self, max_per_minute: int):
+        self._interval = 60.0 / max_per_minute
+        self._lock = asyncio.Lock()
+        self._last_call = 0.0
+
+    async def wait(self) -> None:
+        async with self._lock:
+            now = asyncio.get_event_loop().time()
+            wait_time = self._last_call + self._interval - now
+            if wait_time > 0:
+                await asyncio.sleep(wait_time)
+            self._last_call = asyncio.get_event_loop().time()
+
+
 class TInvestClient:
     # Максимум одновременных запросов к T-Invest API. При большом числе
     # тикеров, опрашиваемых параллельно через asyncio.gather, без этого
@@ -108,14 +131,17 @@ class TInvestClient:
     # (Connection closed / Server disconnected).
     MAX_CONCURRENT_REQUESTS = 5
 
-    # Сколько раз повторить запрос при обрыве соединения, прежде чем
-    # сдаться и вернуть None
-    MAX_RETRIES = 2
+    # Сколько раз повторить запрос при обрыве соединения или 429, прежде
+    # чем сдаться и вернуть None
+    MAX_RETRIES = 3
 
-    def __init__(self, token: str):
+    def __init__(self, token: str, max_requests_per_minute: int = 100):
         self._token = token
         self._session: aiohttp.ClientSession | None = None
         self._semaphore = asyncio.Semaphore(self.MAX_CONCURRENT_REQUESTS)
+        # небольшой запас (95% от документированного лимита), чтобы не
+        # упираться в границу из-за погрешностей округления времени
+        self._rate_limiter = _RateLimiter(max(1, int(max_requests_per_minute * 0.95)))
 
     async def __aenter__(self) -> "TInvestClient":
         ssl_context = _build_ssl_context()
@@ -144,10 +170,29 @@ class TInvestClient:
 
         async with self._semaphore:
             for attempt in range(1, self.MAX_RETRIES + 1):
+                await self._rate_limiter.wait()
                 try:
                     async with self._session.post(
                         url, json=body, timeout=aiohttp.ClientTimeout(total=10),
                     ) as resp:
+                        if resp.status == 429:
+                            retry_after = resp.headers.get("Retry-After")
+                            delay = float(retry_after) if retry_after else 2.0 * attempt
+                            if attempt < self.MAX_RETRIES:
+                                logger.debug(
+                                    "T-Invest %s.%s: превышен лимит запросов (429), "
+                                    "жду %.1fс и повторяю (попытка %d/%d)",
+                                    service, method, delay, attempt, self.MAX_RETRIES,
+                                )
+                                await asyncio.sleep(delay)
+                                continue
+                            logger.warning(
+                                "T-Invest %s.%s: лимит запросов (429) после %d попыток — "
+                                "пропускаю этот тик. Рассмотрите увеличение интервалов "
+                                "опроса в config.py или уменьшение списка тикеров.",
+                                service, method, self.MAX_RETRIES,
+                            )
+                            return None
                         if resp.status != 200:
                             text = await resp.text()
                             logger.warning(
@@ -226,6 +271,12 @@ class TInvestClient:
         candles: list[Candle] = []
         for row in rows:
             try:
+                # T-Invest отдаёт время свечи в UTC — переводим в московское
+                # (UTC+3, фиксированное смещение, в России нет перехода на
+                # летнее/зимнее время), иначе в уведомлениях время будет
+                # расходиться с реальным на 3 часа
+                utc_time = datetime.strptime(row["time"][:19], "%Y-%m-%dT%H:%M:%S")
+                moscow_time = utc_time + timedelta(hours=3)
                 candles.append(
                     Candle(
                         open=_quotation_to_float(row["open"]),
@@ -233,7 +284,7 @@ class TInvestClient:
                         high=_quotation_to_float(row["high"]),
                         low=_quotation_to_float(row["low"]),
                         volume=int(row["volume"]),
-                        begin=datetime.strptime(row["time"][:19], "%Y-%m-%dT%H:%M:%S"),
+                        begin=moscow_time,
                     )
                 )
             except (KeyError, TypeError, ValueError):

@@ -21,6 +21,8 @@ import config
 from detector import LargeOrderDetector
 from notifier import TelegramNotifier
 from pattern_detector import PatternDetector
+from settings import SignalSettings
+from telegram_commands import setup_dispatcher
 from tinvest_client import TInvestClient
 
 logging.basicConfig(
@@ -109,20 +111,49 @@ async def pattern_loop(client: TInvestClient, notifier: TelegramNotifier,
         await asyncio.sleep(max(0.0, config.PATTERN_POLL_INTERVAL_SEC - elapsed))
 
 
+async def telegram_polling_loop(dp, bot) -> None:
+    """
+    Запускает приём команд Telegram (/settings и т.п.) с автоматическим
+    перезапуском при сбое. Без этой обёртки любая сетевая ошибка при
+    старте polling (например, VPN не в режиме "туннель", из-за чего
+    api.telegram.org недоступен) валит весь asyncio.gather в main_loop —
+    то есть падают и рабочие циклы T-Invest, хотя проблема касалась
+    только Telegram.
+    """
+    while True:
+        try:
+            await dp.start_polling(bot)
+        except Exception as exc:  # noqa: BLE001
+            logger.error(
+                "Ошибка приёма команд Telegram (%s) — повтор через 15 секунд. "
+                "Если ошибка про 'semaphore timeout'/SSL — проверьте, что VPN "
+                "включён и в режиме полного туннеля.",
+                exc,
+            )
+            await asyncio.sleep(15)
+
+
 async def main_loop() -> None:
-    notifier = TelegramNotifier(config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHAT_ID)
+    settings = SignalSettings()
+    notifier = TelegramNotifier(config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHAT_ID, settings)
     latest_prices: dict[str, float] = {}
+    dp = setup_dispatcher(settings, owner_chat_id=config.TELEGRAM_CHAT_ID)
 
     logger.info(
         "Запуск мониторинга (T-Invest API) по %d тикерам: %s",
         len(config.TICKERS), ", ".join(config.TICKERS),
     )
+    logger.info("Текущие настройки сигналов: %s", settings.all_state())
 
     try:
-        async with TInvestClient(config.T_INVEST_TOKEN) as client:
+        async with TInvestClient(
+            config.T_INVEST_TOKEN,
+            max_requests_per_minute=config.T_INVEST_MAX_REQUESTS_PER_MINUTE,
+        ) as client:
             await asyncio.gather(
                 orderbook_loop(client, notifier, latest_prices),
                 pattern_loop(client, notifier, latest_prices),
+                telegram_polling_loop(dp, notifier.bot),
             )
     finally:
         await notifier.close()

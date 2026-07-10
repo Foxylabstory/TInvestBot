@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 
 from aiogram import Bot
 
 from detector import Signal
 from pattern_detector import PatternSignal
+from settings import SignalSettings
 
 logger = logging.getLogger("moex_bot.notifier")
 
@@ -60,23 +62,42 @@ def _format_levels(levels) -> str:
 
 
 class TelegramNotifier:
-    def __init__(self, token: str, chat_id: str):
+    # Число попыток отправки при сетевых ошибках (обрыв соединения,
+    # характерная для нестабильного VPN ошибка "semaphore timeout" и т.п.)
+    MAX_SEND_RETRIES = 3
+
+    def __init__(self, token: str, chat_id: str, settings: SignalSettings):
         self.bot = Bot(token=token)
         self.chat_id = chat_id
+        self.settings = settings
+
+    async def _send(self, text: str) -> None:
+        for attempt in range(1, self.MAX_SEND_RETRIES + 1):
+            try:
+                await self.bot.send_message(chat_id=self.chat_id, text=text, parse_mode="HTML")
+                return
+            except Exception as exc:  # noqa: BLE001
+                if attempt < self.MAX_SEND_RETRIES:
+                    logger.debug(
+                        "Не удалось отправить сообщение в Telegram (попытка %d/%d), повторяю: %s",
+                        attempt, self.MAX_SEND_RETRIES, exc,
+                    )
+                    await asyncio.sleep(1.0 * attempt)
+                    continue
+                logger.error(
+                    "Не удалось отправить сообщение в Telegram после %d попыток: %s",
+                    self.MAX_SEND_RETRIES, exc,
+                )
 
     async def send_signal(self, signal: Signal) -> None:
-        text = format_signal(signal)
-        try:
-            await self.bot.send_message(chat_id=self.chat_id, text=text, parse_mode="HTML")
-        except Exception as exc:  # noqa: BLE001
-            logger.error("Не удалось отправить сообщение в Telegram: %s", exc)
+        if not self.settings.is_enabled("large_order"):
+            return
+        await self._send(format_signal(signal))
 
     async def send_pattern_signal(self, signal: PatternSignal) -> None:
-        text = format_pattern_signal(signal)
-        try:
-            await self.bot.send_message(chat_id=self.chat_id, text=text, parse_mode="HTML")
-        except Exception as exc:  # noqa: BLE001
-            logger.error("Не удалось отправить сообщение в Telegram: %s", exc)
+        if not self.settings.is_enabled(signal.category):
+            return
+        await self._send(format_pattern_signal(signal))
 
     async def close(self) -> None:
         await self.bot.session.close()

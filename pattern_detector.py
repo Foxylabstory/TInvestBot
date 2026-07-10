@@ -23,6 +23,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import logging
 from datetime import datetime
 
 from candles_api import Candle
@@ -35,6 +36,8 @@ from config import (
     VOLUME_SPIKE_MIN_ABS,
 )
 from risk_calculator import TradeLevels, compute_atr, levels_from_atr
+
+logger = logging.getLogger("moex_bot.pattern_detector")
 
 
 @dataclass
@@ -293,12 +296,25 @@ class PatternDetector:
                 levels=make_levels(direction),
             ))
 
-        for name, direction, detail in _detect_double_top_bottom(candles):
-            signals.append(PatternSignal(
-                ticker=ticker, pattern=name, category="classic",
-                direction=direction, price=last_candle.close, timestamp=last_candle.begin, detail=detail,
-                levels=make_levels(direction),
-            ))
+        double_patterns = _detect_double_top_bottom(candles)
+        directions_found = {direction for _, direction, _ in double_patterns}
+        if "bullish" in directions_found and "bearish" in directions_found:
+            # Одновременно найдены и двойная вершина, и двойное дно —
+            # это признак узкого бокового диапазона (шум), а не реальной
+            # структуры разворота. Оба сигнала противоречат друг другу,
+            # поэтому гасим их вместо отправки конфликтующих уведомлений.
+            logger.debug(
+                "%s: одновременно двойная вершина и двойное дно — "
+                "похоже на боковик, сигналы подавлены",
+                ticker,
+            )
+        else:
+            for name, direction, detail in double_patterns:
+                signals.append(PatternSignal(
+                    ticker=ticker, pattern=name, category="classic",
+                    direction=direction, price=last_candle.close, timestamp=last_candle.begin, detail=detail,
+                    levels=make_levels(direction),
+                ))
 
         for name, direction, detail in _detect_triangle(candles):
             signals.append(PatternSignal(
